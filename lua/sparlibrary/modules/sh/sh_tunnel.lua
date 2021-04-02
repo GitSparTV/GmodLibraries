@@ -1,0 +1,33 @@
+-- Disabled
+-- local metatable = {}
+-- local debugtraceback = debug.traceback
+-- local getfilepath = function()
+-- 	local t = string.Explode("\n",debugtraceback())
+-- 	for k,v in pairs(t) do
+-- 		t[k] = string.Trim(v,"\t")
+-- 		t[k] = string.Explode(":",v)
+-- 		if not t[k][3] then continue end
+-- 		t[k][3] = string.Trim(t[k][3]," ")
+-- 		if string.match(t[k][1],"sh_tunnel.lua") then continue end
+-- 		return string.Trim(t[k][1],"\t")
+-- 	end
+-- end
+-- function metatable:Add(ID,func,...)
+-- 	falser(ID,FALSER_VALID)
+-- 	falser(func,FALSER_FUNC)
+-- 	if self.datum[ID] then if CLIENT then Global.API:Send("sbac.trace",{debugtraceback(),"tunnel"}) else print("Already") end return end 
+-- 	self.datum[ID] = {func=func,filter=table.ValuesToKeys({...})}
+-- end
+-- function metatable:Connect(ID)
+-- 	falser(ID,FALSER_VALID)
+-- 	if not self.datum[ID] then
+-- 		return
+-- 	else
+-- 		if self.datum[ID].filter[getfilepath()] == true then
+-- 			return self.datum[ID].func
+-- 		else
+-- 			if CLIENT then Global.API:Send("sbac.trace",{debugtraceback(),"tunnel"}) else print("Unknown path") end
+-- 		end
+-- 	end
+-- end
+-- tunnel = metaobject(metatable,{datum={}})
